@@ -1,0 +1,10 @@
+type Joke{
+  id: ID
+  icon_url: String
+  url: String
+  value: String
+  joke: String
+}
+type Query{
+  randomJoke: Joke
+}
