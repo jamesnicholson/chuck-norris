@@ -1,10 +1,14 @@
 type Joke{
-  id: ID
+  id: ID!
   icon_url: String
   url: String
   value: String
   joke: String
 }
+type category{
+  name: String
+}
 type Query{
   randomJoke: Joke
+  categories: [category!]
 }
