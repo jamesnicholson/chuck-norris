@@ -5,10 +5,25 @@ type Joke{
   value: String
   joke: String
 }
-type category{
+type Category{
   name: String
+}
+type Search {
+  total: Int
+  results: [SearchResult]!
+}
+type SearchResult {
+  id: ID!
+  categories: [Category!]
+  icon_url: String
+  url: String
+  value: String
+  created_at: String
+  updated_at: String
 }
 type Query{
   randomJoke: Joke
-  categories: [category!]
+  categories: [Category!]
+  getJoke(id: ID!): Joke
+ // search(id: ID!): [Search!]
 }

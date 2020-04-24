@@ -7,8 +7,14 @@ const { RESTDataSource } = require("apollo-datasource-rest");
     async randomJoke(){
         return await this.get("random")
     }
+    async getJoke(id){
+        return await this.get("random?category="+id)
+    }
     async categories(){
         return await this.get("categories")
+    }
+    async search(id){
+        return await this.get("search?query="+id)
     }
 }
 module.exports = {ChuckAPI}
