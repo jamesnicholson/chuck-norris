@@ -3,27 +3,26 @@ type Joke{
   icon_url: String
   url: String
   value: String
-  joke: String
 }
 type Category{
   name: String
 }
 type Search {
   total: Int
-  results: [SearchResult]!
+  result: [SearchResult]!
 }
 type SearchResult {
   id: ID!
-  categories: [Category!]
+  categories: [Category]
   icon_url: String
   url: String
-  value: String
+  value: String 
   created_at: String
   updated_at: String
 }
 type Query{
-  randomJoke: Joke
+  random: Joke
   categories: [Category!]
-  getJoke(id: ID!): Joke
- // search(id: ID!): [Search!]
+  getJoke(category: String!): Joke
+  search(searchTerm: String!): Search
 }
