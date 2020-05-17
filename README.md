@@ -11,7 +11,7 @@ Demo: http://159.203.110.164:9001/graphql
     $ docker run -p 9001:9000 jam3snicholson/chuck-norris-apollo-server
 ```
 
-License
+###License
 ----
 
 MIT
