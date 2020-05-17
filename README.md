@@ -46,4 +46,14 @@ Fetch a random joke.
 }
 ```  
 
-Enjoy! :)
+Fetch Category List
+ ```sh
+{
+  categories {
+    name
+  }
+}
+```  
+
+
+Enjoy :)
