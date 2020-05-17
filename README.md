@@ -2,7 +2,7 @@
  Apollo Server running on express and consuming api.chucknorris.io.
 Demo: http://159.203.110.164:9001/graphql
 
-# New Features!
+## New Features!
 
   -  Chuck Norris Apollo Server has been dockerized
 
