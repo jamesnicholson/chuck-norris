@@ -1,6 +1,7 @@
 version: '3'
 services:
   myservice:
+    container_name: chuck-norris-server
     build:
       context: ./
       dockerfile: Dockerfile
