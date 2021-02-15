@@ -1,10 +1,19 @@
 version: '3'
+
 services:
-  myservice:
-    container_name: chuck-norris-server
+  server:
     build:
-      context: ./
-      dockerfile: Dockerfile
-    image: result/latest
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: "jam3snicholson/chucknorris-server"
     ports:
       - "9001:9000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "jam3snicholson/chucknorris-frontend"
+    ports:
+      - "3000:3000"
+    links:
+      - "server"
