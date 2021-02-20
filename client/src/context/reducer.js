@@ -4,7 +4,8 @@ const saveJoke = (payload, state) => {
         ...state,
         jokes: [...state.jokes, {
             id: payload.id,
-            joke: payload.joke
+            joke: payload.joke,
+            category: payload.category
         }]
     };
 }

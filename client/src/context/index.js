@@ -2,7 +2,7 @@ import React, { useReducer, createContext, useMemo} from 'react'
 import reducer from './reducer'
 import { SET_CATEGORY, SAVE_JOKE } from '../utils/enums'
 const initialState = {
-    category: "",
+    category: "celebrity",
     jokes: []
 }
 const GlobalContext = createContext(initialState);
