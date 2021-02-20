@@ -1,15 +1,14 @@
 import React, { useReducer, createContext, useMemo} from 'react'
 import reducer from './reducer'
-import { SET_CATEGORY, GET_CATEGORY } from '../utils/enums'
+import { SET_CATEGORY, SAVE_JOKE } from '../utils/enums'
 const initialState = {
-    category: ""
+    category: "",
+    jokes: []
 }
 const GlobalContext = createContext(initialState);
 
-
 export const GlobalContextProvider = props => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
     const actions = useMemo(() => ({
       setCategory: (value) => {
         dispatch({
@@ -17,14 +16,16 @@ export const GlobalContextProvider = props => {
           payload: value
         })
       },
-      getCategory: ({ id, content }) => {
+      saveJoke: (props) => {
         dispatch({
-          type: GET_CATEGORY
+          type: SAVE_JOKE,
+          payload: {
+            id: props.id,
+            joke: props.joke
+          }
         })
       }
     }), []);
-
-
 
     return (
       <GlobalContext.Provider value={[state, actions]}>

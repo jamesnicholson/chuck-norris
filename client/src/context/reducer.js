@@ -1,6 +1,12 @@
-import { GET_CATEGORY, SET_CATEGORY } from '../utils/enums'
-const getCategory = (payload, state) => {
-    return state;
+import { SET_CATEGORY, SAVE_JOKE } from '../utils/enums'
+const saveJoke = (payload, state) => {
+    return {
+        ...state,
+        jokes: [...state.jokes, {
+            id: payload.id,
+            joke: payload.joke
+        }]
+    };
 }
 const setCategory = (payload, state) => {
     return {
@@ -10,8 +16,8 @@ const setCategory = (payload, state) => {
 }
  const reducers = (state, action) => {
     switch(action.type){
-        case GET_CATEGORY :
-            return getCategory(action.payload, state);
+        case SAVE_JOKE :
+            return saveJoke(action.payload, state);
         case SET_CATEGORY :
             return setCategory(action.payload, state);
         default: 

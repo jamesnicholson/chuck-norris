@@ -6,7 +6,6 @@ import Categories from '../Categories'
 import Loading from '../Loading'
 import GlobalContext from '../../context'
 
-
 function App() {
   const [state] = useContext(GlobalContext);
 
@@ -15,18 +14,20 @@ function App() {
     variables: { category: state.category ? state.category : 'dev' },
   })
   useEffect(() => {
-   if(data === undefined) {
-      getJoke()
-   }
+    if(data === undefined) {
+        getJoke()
+    }
   },[data, state.category])
-
+  useEffect(() => {
+  console.log(state)
+   },[state])
   return (
     <div className="App">
       { data === undefined ? 
         <Loading /> :
         <div>
           <Categories />
-          <Joke joke={data.getJoke.value} />
+          <Joke joke={data.getJoke.value} id={data.getJoke.id} />
         </div>
       }
     </div>
