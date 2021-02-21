@@ -1,5 +1,6 @@
 import React, { useReducer, createContext, useMemo} from 'react'
 import reducer from './reducer'
+import AppThemeProvider from './styles'
 import { SET_CATEGORY, SAVE_JOKE } from '../utils/enums'
 const initialState = {
     category: "celebrity",
@@ -29,7 +30,9 @@ export const GlobalContextProvider = props => {
 
     return (
       <GlobalContext.Provider value={[state, actions]}>
-        {props.children}
+        <AppThemeProvider>
+          {props.children}
+        </AppThemeProvider>
       </GlobalContext.Provider>
     );
   };

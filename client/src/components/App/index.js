@@ -7,8 +7,9 @@ import Loading from '../Loading'
 import JokeList from '../Joke/JokeList'
 import SaveButton from '../Joke/SaveButton'
 import GlobalContext from '../../context'
-
-function App() {
+import styled, { ThemeContext } from 'styled-components';
+const App = () => {
+  const themeContext = useContext(ThemeContext);
   const [joke, setJoke] = useState({})
   const [globalState] = useContext(GlobalContext);
   const [getJoke, { loading, data }] = useLazyQuery(GET_JOKE_BY_CATEGORY, {
@@ -29,16 +30,21 @@ function App() {
     }
   },[data, globalState.category])
 
+  const AppContainer = styled.div`
+      background-color:${themeContext.primaryColor}
+  `;
+  
+
   return (
     <div className="App">
       { data === undefined ? 
         <Loading /> :
-        <div>
+        <AppContainer>
           <Categories />
           <Joke jokeData={joke} />
           <JokeList />
           <SaveButton jokeData={joke} />
-        </div>
+        </AppContainer>
       }
     </div>
     );
