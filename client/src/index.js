@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
-import './index.css';
+import './styles/index.css';
 import client from './apollo/client'
 import { GlobalContextProvider } from './context'
 import App from './components/App';

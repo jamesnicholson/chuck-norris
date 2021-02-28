@@ -1,25 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components'
+import { jokeCard,jokeContent } from '../../styles'
 
 const JokeCard = styled.div`
-  background-color: #EA661E;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid #ff5722;
-  border-radius: 3px;
+  ${jokeCard}
 `;
 const JokeContent = styled.div`
-color: white;
-    text-shadow: 1px 1px #0000008c;
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
+  ${jokeContent}
 `;
 
 function Joke(props){
-    const { jokeData: {id, joke} } = props;
-    return  <JokeCard>
-                <JokeContent>{joke}</JokeContent>
-            </JokeCard>;
+  const { jokeData: {id, joke} } = props;
+  return  <JokeCard>
+              <JokeContent id={id}>{joke}</JokeContent>
+          </JokeCard>;
 }
 export default Joke;
