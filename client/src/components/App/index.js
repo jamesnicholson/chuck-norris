@@ -19,10 +19,10 @@ const App = () => {
 
   const [joke, setJoke] = useState({})
   const [globalState] = useContext(GlobalContext);
- 
+
   const [getJoke, { loading, data }] = useLazyQuery(GET_JOKE_BY_CATEGORY, {
-    fetchPolicy: "no-cache",
     variables: { category: globalState.category },
+    fetchPolicy: "network-only",
     onCompleted:(data) => {
       setJoke({
         id: data.getJoke.id,
@@ -33,24 +33,18 @@ const App = () => {
   })
 
   useEffect(() => {
-    if(data === undefined) {
       getJoke()
-    }
-  },[data, globalState.category])
+  },[globalState])
 
   return (
-      <>
-      {
+
         <AppPage>
           <Categories />
-          {
-            loading ? <Loading /> : <Joke jokeData={joke} /> 
-          }
+          <Joke jokeData={joke} /> 
           <SaveButton jokeData={joke} />
           <JokeList />
         </AppPage>
-      }
-      </>
+
     );
   }
   

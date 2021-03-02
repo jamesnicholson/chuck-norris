@@ -23,7 +23,7 @@ const rotate = keyframes`
 
 export const appPage = css`
   transition: opacity 2s;
-  background-color:${style.primaryColor}
+  background-color:${style.primaryColor};
   display: flex;
   flex-direction: column;
 `;
@@ -42,6 +42,9 @@ export const loadingPage = css`
   background: burlywood;
   height: 100%;
   top: 0px;
+`;
+export const categoryContainer = css`
+  min-height:100px;
 `;
 export const categoryList = css`
   display:flex;

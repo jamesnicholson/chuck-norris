@@ -12,7 +12,7 @@ const JokeContent = styled.div`
 function Joke(props){
   const { jokeData: {id, joke} } = props;
   return  <JokeCard>
-              <JokeContent id={id}>{joke}</JokeContent>
+            <JokeContent id={id}>{joke}</JokeContent>
           </JokeCard>;
 }
 export default Joke;
